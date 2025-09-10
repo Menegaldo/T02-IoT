@@ -5,7 +5,7 @@ const char* ssid     = "NomeDaRede";     // Nome da rede (SSID)
 const char* password = "SenhaSecreta";  // Senha da rede
 
 void setup() {
-  Serial.begin(9600);           // Inicializa a serial para debug
+  Serial.begin(115200);           // Inicializa a serial para debug
   WiFi.begin(ssid, password);   // Inicia a conexão Wi-Fi
 
   Serial.print("Conectando ao Wi-Fi");
