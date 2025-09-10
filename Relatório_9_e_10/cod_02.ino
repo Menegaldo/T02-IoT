@@ -6,7 +6,7 @@ const char* ssid     = "NomeDaRede";     // SSID (nome da rede)
 const char* password = "SenhaSecreta";  // Senha da rede
 
 void setup() {
-  Serial.begin(9600);             // Inicia comunicação serial
+  Serial.begin(115200);           // Inicia comunicação serial
   WiFi.begin(ssid, password);     // Conecta ao Wi-Fi
   Serial.print("Conectando");
 
@@ -23,8 +23,12 @@ void setup() {
   
 
   // --- Requisição HTTP GET ---
+  WiFiClient client; // Cliente Wi-Fi (necessário para begin)
   HTTPClient http;  
-  http.begin("http://httpbin.org/get?sensor=ESP8266"); // URL do teste
+
+  // Novo formato -> precisa passar WiFiClient e URL
+  http.begin(client, "http://httpbin.org/get?sensor=ESP8266"); 
+
   int codigo = http.GET();  // Executa GET
 
   if (codigo > 0) {  // Se obteve resposta
