@@ -44,5 +44,4 @@ void setup() {
 }
 
 void loop() {
-  // Vazio (pode colocar repetição aqui se quiser testar periodicamente)
 }
